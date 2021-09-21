@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
+import Galleries from "./pages/Galleries";
 import { getActiveUser, selectIsAuthenticated } from "./store/auth";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,6 +24,9 @@ function App() {
       <Router>
         <NavBar />
         <Switch>
+          <Route exact path="/">
+            <Galleries />
+          </Route>
           <Route extact path="/register">
             <Register />
           </Route>
