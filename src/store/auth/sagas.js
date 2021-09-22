@@ -25,7 +25,7 @@ function* loginHandler(action) {
     yield put(setActiveUser(user));
     yield put(setToken(token));
   } catch (error) {
-    console.log(error);
+    alert("Invalid credentials");
   }
 }
 

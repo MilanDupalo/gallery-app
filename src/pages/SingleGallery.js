@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import GalleryService from "../services/GalleryService";
 import useFormattedDate from "../hooks/useFormattedDate";
+import { Link } from "react-router-dom";
 
 function SingleGallery() {
   const [gallery, setGallery] = useState([]);
@@ -35,7 +36,11 @@ function SingleGallery() {
       <p>{gallery.description}</p>
 
       {gallery.images && gallery.images.length
-        ? gallery.images.map((image) => <img src={image.imageURL} />)
+        ? gallery.images.map((image) => (
+            <a target="_blank" href={image.imageURL}>
+              <img src={image.imageURL} />
+            </a>
+          ))
         : "This post dosen't have image"}
     </div>
   );
