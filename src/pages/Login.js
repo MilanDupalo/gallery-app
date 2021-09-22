@@ -15,7 +15,6 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
     dispatch(login(credentials));
-    history.push("/");
   }
 
   return (

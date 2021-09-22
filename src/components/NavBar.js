@@ -15,10 +15,15 @@ export default function NavBar() {
   return (
     <div>
       <nav>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
         {isAuthenticated ? (
-          <h3>Hello {activeUser && activeUser.firstName}</h3>
+          <h3 className="active-user">
+            Hello {activeUser && activeUser.firstName}
+          </h3>
         ) : (
-          <h3>Hello</h3>
+          <h3 className="active-user">Hello</h3>
         )}
         {isAuthenticated ? (
           <>
@@ -29,9 +34,6 @@ export default function NavBar() {
           </>
         ) : (
           <>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
             <li>
               <Link to="/login">Login</Link>
             </li>
