@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 li {
   list-style: none;
 }
@@ -20,8 +16,8 @@ nav {
   flex-direction: row;
   justify-content: flex-end;
   position: relative;
-  right: 20px;
   align-items: center;
+  background-color: rgb(241, 241, 241);
 }
 
 button {
@@ -44,9 +40,9 @@ button:hover {
 .active-user {
   position: absolute;
   left: 50px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  border: 3px solid #151515;
+  background-color: rgba(235, 235, 235, 0.1);
+  border-radius: 5px;
+  border: 3px solid #dadada;
   padding: 5px;
 }
 
@@ -68,6 +64,15 @@ li {
   padding: 15px;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
   text-align: center;
+  position: relative;
+  border-top: 3px solid rgb(155, 44, 44);
+  transition: 225ms;
+}
+
+.card-box:hover {
+  border-bottom: 3px solid rgb(155, 44, 44);
+  border-top: none;
+  box-shadow: 0 0 7px 3px rgba(66, 48, 48, 0.7);
 }
 
 .card-title {
@@ -79,4 +84,49 @@ li {
 .img {
   width: 220px;
   height: 200px;
+}
+
+.singleBox {
+  width: 80%;
+  margin-left: 10%;
+  text-align: center;
+}
+
+.singleBox-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.single-user {
+  font-style: italic;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.single-page--img {
+  width: 300px;
+  height: 300px;
+}
+
+.pagination-btn {
+  width: 60%;
+  left: 20%;
+  margin-bottom: 10px;
+  position: absolute;
+  height: 40px;
+  background-color: transparent;
+  border: 3px solid rgb(126, 48, 48);
+  color: rgb(126, 48, 48);
+  border-radius: 5px;
+}
+
+.nullImagesMessage {
+  font-style: 1.3rem;
+  color: rgb(126, 48, 48);
+  font-weight: 700;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
