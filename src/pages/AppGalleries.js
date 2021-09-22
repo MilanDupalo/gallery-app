@@ -26,7 +26,9 @@ function AppGaleries() {
         <div className="card-container">
           {galleries.map((gallery) => (
             <figure className="card-box" key={gallery.id}>
-              <Link to={`/galleries/${gallery.id}`}>{gallery.title} </Link>
+              <Link className="card-title" to={`/galleries/${gallery.id}`}>
+                {gallery.title}{" "}
+              </Link>
 
               <img
                 className="img"

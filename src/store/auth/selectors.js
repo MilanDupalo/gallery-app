@@ -1,5 +1,4 @@
 export function selectActiveUser(state) {
-  console.log(state.auth.activeUser);
   return state.auth.activeUser;
 }
 
