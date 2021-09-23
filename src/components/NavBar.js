@@ -30,6 +30,9 @@ export default function NavBar() {
             <li>
               <Link to="/create-gallery">Create gallery</Link>
             </li>
+            <li>
+              <Link to="/my-galleries">My galleries</Link>
+            </li>
             <button onClick={handleLogout}>Logout</button>
           </>
         ) : (

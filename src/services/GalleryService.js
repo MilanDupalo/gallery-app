@@ -15,6 +15,14 @@ class GalleryService extends HttpService {
     const { data } = await this.client.get(`/galleries?page=${number}`);
     return data;
   };
+  getMyGalleries = async (id) => {
+    try {
+      const { data } = await this.client.get(`/my-galleries/${id}`);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 export default new GalleryService();

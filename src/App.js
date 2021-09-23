@@ -5,10 +5,12 @@ import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
 import AppGalleries from "./pages/AppGalleries";
 import SingleGallery from "./pages/SingleGallery";
+import MyGalleries from "./pages/myGalleries";
 import { getActiveUser, selectIsAuthenticated } from "./store/auth";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GuestRoute from "./components/shared/GuestRoute";
+import PrivateRoute from "./components/shared/PrivateRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +33,9 @@ function App() {
           <Route exact path="/galleries/:id">
             <SingleGallery />
           </Route>
+          <PrivateRoute exact path="/my-galleries">
+            <MyGalleries />
+          </PrivateRoute>
           <Route extact path="/register">
             <Register />
           </Route>
