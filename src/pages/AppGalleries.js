@@ -1,5 +1,5 @@
 import GalleryService from "../services/GalleryService";
-import { useEffect, useHistory } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useFormattedDate from "../hooks/useFormattedDate";
@@ -73,7 +73,7 @@ function AppGaleries() {
       )}
       {totalPages !== page && (
         <button className="pagination-btn" onClick={() => setPage(page + 1)}>
-          {loading ? "Loading..." : "Load More"}
+          {loading ? "Loading..." : "--- Load More ---"}
         </button>
       )}
     </div>

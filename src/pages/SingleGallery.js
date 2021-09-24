@@ -67,7 +67,7 @@ function SingleGallery() {
         : "This post dosen't have image"}
       <div>
         <p>
-          <strong>Comments: </strong>
+          <span className="comments-tittle">Comments: </span>
         </p>
 
         {gallery.comments ? (
@@ -89,7 +89,7 @@ function SingleGallery() {
                         className="delete-btn"
                         onClick={() => handleDeleteComment(comment.id)}
                       >
-                        Delete
+                        Remove
                       </button>
                     ) : (
                       ""
@@ -105,11 +105,15 @@ function SingleGallery() {
           ""
         )}
 
-        <AddComment
-          galleryId={id}
-          addNewCommentCallback={handleAddNewComment}
-          addDeleteCommentCallback={handleDeleteComment}
-        />
+        {isAuthenticated ? (
+          <AddComment
+            galleryId={id}
+            addNewCommentCallback={handleAddNewComment}
+            addDeleteCommentCallback={handleDeleteComment}
+          />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

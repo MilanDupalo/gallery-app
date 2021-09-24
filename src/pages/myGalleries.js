@@ -1,4 +1,4 @@
-import { logout, selectActiveUser, selectIsAuthenticated } from "../store/auth";
+import { selectActiveUser, selectIsAuthenticated } from "../store/auth";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import GalleryService from "../services/GalleryService";

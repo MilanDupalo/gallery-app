@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useParams } from "react-router";
 import GalleryService from "../services/GalleryService";
 
 function AddComment({ galleryId, addNewCommentCallback }) {

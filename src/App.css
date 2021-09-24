@@ -7,6 +7,7 @@ a {
   color: #151515;
   font-weight: 600;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 
 nav {
@@ -55,6 +56,7 @@ button {
   border-radius: 2px;
   transition: 225ms;
   opacity: 0.9;
+  cursor: pointer;
 }
 
 .form-btn {
@@ -97,6 +99,8 @@ li {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 86%;
+  margin-left: 7%;
 }
 
 .card-box {
@@ -109,6 +113,12 @@ li {
   position: relative;
   border-top: 3px solid rgb(155, 44, 44);
   transition: 225ms;
+  padding: 10px;
+  transition: 225ms;
+}
+
+.card-box:hover .card-title {
+  color: rgb(155, 44, 44);
 }
 
 .card-box:hover {
@@ -121,6 +131,7 @@ li {
   margin-bottom: 20px;
   font-size: 1.3rem;
   font-weight: 700;
+  line-height: 30px;
 }
 
 .img {
@@ -158,9 +169,13 @@ li {
   position: absolute;
   height: 40px;
   background-color: transparent;
-  border: 3px solid rgb(126, 48, 48);
   color: rgb(126, 48, 48);
-  border-radius: 5px;
+  border: 2px solid rgb(126, 48, 48);
+  transition: 225ms;
+}
+.pagination-btn:hover {
+  background-color: rgb(126, 48, 48);
+  color: white;
 }
 
 .nullImagesMessage {
@@ -219,6 +234,7 @@ li {
   margin-left: 10%;
 }
 
+.date,
 .dateComments {
   font-size: 0.8rem;
   font-style: normal;
@@ -272,4 +288,13 @@ li {
   margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.comments-tittle {
+  font-size: 1rem;
+  color: rgb(68, 68, 68);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-right: 580px;
 }

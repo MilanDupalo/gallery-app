@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../store/auth";
-import { useHistory } from "react-router";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -9,8 +8,6 @@ export default function Login() {
     email: "",
     password: "",
   });
-
-  const history = useHistory();
 
   function handleSubmit(event) {
     event.preventDefault();

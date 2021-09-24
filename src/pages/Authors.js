@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import GalleryService from "../services/GalleryService";
 import { useParams } from "react-router";
@@ -29,6 +28,7 @@ function Authors() {
             {gallery.images.length ? (
               <img
                 className="img"
+                alt=""
                 src={
                   gallery.images.length
                     ? gallery.images[0].imageURL
