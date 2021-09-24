@@ -14,7 +14,7 @@ class GalleryService extends HttpService {
   getGalleries = async (number = 1, title = "") => {
     let endpoint = `/galleries/?page=${number}`;
     if (title) {
-      endpoint += `&title={title}`;
+      endpoint += `&title=${title}`;
     }
     const { data } = await this.client.get(endpoint);
     return data;
@@ -39,6 +39,12 @@ class GalleryService extends HttpService {
 
   deleteComment = async (id) => {
     const { data } = await this.client.delete(`/comments/${id}`);
+    return data;
+  };
+
+  addGallery = async (newGallery) => {
+    const { data } = await this.client.post(`/create-galleries`, newGallery);
+
     return data;
   };
 }

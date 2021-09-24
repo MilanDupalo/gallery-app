@@ -232,6 +232,12 @@ li {
   margin-top: 10px;
   border-radius: 5px;
   color: white;
+  width: 50%;
+  margin-left: 24%;
+  transition: 225ms;
+}
+.commentsContainer:hover {
+  background-color: rgba(35, 34, 35, 0.8);
 }
 
 .delete-btn {
