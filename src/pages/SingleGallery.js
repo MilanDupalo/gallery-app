@@ -5,7 +5,8 @@ import useFormattedDate from "../hooks/useFormattedDate";
 import AddComment from "../components/AddComment";
 import { useSelector } from "react-redux";
 import { selectActiveUser, selectIsAuthenticated } from "../store/auth";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Carousel } from "react-bootstrap";
 
 function SingleGallery() {
   const [gallery, setGallery] = useState([]);
@@ -53,18 +54,22 @@ function SingleGallery() {
         "Nema imena testeru."
       )}
       <p>{gallery.description}</p>
-
-      {gallery.images && gallery.images.length
-        ? gallery.images.map((image, index) => (
-            <a key={index} target="_blank" href={image.imageURL}>
-              <img
-                key={image.id}
-                className="single-page--img"
-                src={image.imageURL}
-              />
-            </a>
-          ))
-        : "This post dosen't have image"}
+      <Carousel>
+        {gallery.images && gallery.images.length
+          ? gallery.images.map((image, index) => (
+              <Carousel.Item key={image.id}>
+                <a key={index} target="_blank" href={image.imageURL}>
+                  <img
+                    className="single-page--img"
+                    src={image.imageURL}
+                    alt={image.imageURL}
+                    key={image.id}
+                  />
+                </a>
+              </Carousel.Item>
+            ))
+          : "This post dosen't have image"}
+      </Carousel>
       <div>
         <p>
           <span className="comments-tittle">Comments: </span>

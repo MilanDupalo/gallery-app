@@ -32,6 +32,12 @@ nav {
 
 .nav-link:hover {
   text-shadow: 18px -15px 0px white;
+  color: rgb(155, 44, 44);
+}
+
+.nav-link:focus {
+  color: rgb(155, 44, 44);
+  border-bottom: 1px solid rgb(155, 44, 44);
 }
 
 .logout-btn {
@@ -89,6 +95,7 @@ button {
 .active-user {
   position: absolute;
   left: 50px;
+  font-size: 1.1rem;
 }
 
 li {
@@ -112,9 +119,9 @@ li {
   text-align: center;
   position: relative;
   border-top: 3px solid rgb(155, 44, 44);
-  transition: 225ms;
   padding: 10px;
   transition: 225ms;
+  margin: 15px;
 }
 
 .card-box:hover .card-title {
@@ -135,7 +142,7 @@ li {
 }
 
 .img {
-  width: 220px;
+  width: 200px;
   height: 200px;
 }
 
@@ -243,7 +250,7 @@ li {
 }
 
 .commentsContainer {
-  padding: 10px 0;
+  padding: 20px;
   background-color: #232223;
   margin-top: 10px;
   border-radius: 5px;
@@ -288,6 +295,17 @@ li {
   margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
+  padding: 5px 10px;
+  border: 3px solid #232223 !important;
+  color: #232223;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 2px;
+  transition: 225ms;
+  opacity: 0.9;
+  cursor: pointer;
+  background: transparent;
 }
 
 .comments-tittle {

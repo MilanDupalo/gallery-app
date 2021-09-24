@@ -35,7 +35,7 @@ function AddComment({ galleryId, addNewCommentCallback }) {
         value={newComment.body}
       />
 
-      <button className="btn comment-btn-submit">Post</button>
+      <button className=" comment-btn-submit">Post</button>
     </form>
   );
 }
