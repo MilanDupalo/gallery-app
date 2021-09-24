@@ -16,32 +16,44 @@ export default function NavBar() {
     <div>
       <nav>
         <li>
-          <Link to="/">Home</Link>
+          <Link className="nav-link" to="/">
+            Home
+          </Link>
         </li>
         {isAuthenticated ? (
           <h3 className="active-user">
-            Hello {activeUser && activeUser.firstName}
+            Welcome back {activeUser && activeUser.firstName}
           </h3>
         ) : (
-          <h3 className="active-user">Hello</h3>
+          <h3 className="active-user">Hello people,enjoy in our app</h3>
         )}
         {isAuthenticated ? (
           <>
             <li>
-              <Link to="/create-gallery">Create gallery</Link>
+              <Link className="nav-link" to="/create-galleries">
+                Create gallery
+              </Link>
             </li>
             <li>
-              <Link to="/my-galleries">My galleries</Link>
+              <Link className="nav-link" to="/my-galleries">
+                My galleries
+              </Link>
             </li>
-            <button onClick={handleLogout}>Logout</button>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
           </>
         ) : (
           <>
             <li>
-              <Link to="/login">Login</Link>
+              <Link className="nav-link" to="/login">
+                Login
+              </Link>
             </li>
             <li>
-              <Link to="/register">Register</Link>
+              <Link className="nav-link" to="/register">
+                Register
+              </Link>
             </li>
           </>
         )}

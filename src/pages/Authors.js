@@ -1,30 +1,25 @@
-import { logout, selectActiveUser, selectIsAuthenticated } from "../store/auth";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import GalleryService from "../services/GalleryService";
+import { useParams } from "react-router";
 
-function MyGalleries() {
+function Authors() {
   const [galleries, setGalleries] = useState([]);
-  const isAuthenticated = useSelector(selectIsAuthenticated);
-  const activeUser = useSelector(selectActiveUser);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchGallery = async () => {
-      if (!activeUser) {
-        return;
-      }
-      console.log(activeUser);
-      const data = await GalleryService.getMyGalleries(activeUser.id);
+      const data = await GalleryService.getMyGalleries(id);
 
       setGalleries(data);
     };
 
     fetchGallery();
-  }, [activeUser]);
+  }, [id]);
 
   return (
     <div className="MyGalleryContainer">
-      <h2>My Galleries</h2>
+      <h2>Author Gallery</h2>
       {galleries.map((gallery) => (
         <div key={gallery.id}>
           <div>
@@ -50,4 +45,4 @@ function MyGalleries() {
   );
 }
 
-export default MyGalleries;
+export default Authors;

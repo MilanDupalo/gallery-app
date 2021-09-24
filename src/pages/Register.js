@@ -24,10 +24,11 @@ export default function Register() {
 
   return (
     <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="formRegistarAndLogin" onSubmit={handleSubmit}>
+        <h2 className="formRegistarAndLogin--title">Register</h2>
         <div>
           <input
+            className="loginField"
             required
             placeholder="firstName"
             value={userData.firstName}
@@ -38,6 +39,7 @@ export default function Register() {
         </div>
         <div>
           <input
+            className="loginField"
             required
             placeholder="lastName"
             value={userData.lastName}
@@ -48,6 +50,7 @@ export default function Register() {
         </div>
         <div>
           <input
+            className="loginField"
             required
             type="email"
             placeholder="Email"
@@ -59,6 +62,7 @@ export default function Register() {
         </div>
         <div>
           <input
+            className="loginField"
             required
             type="password"
             placeholder="Password"
@@ -70,6 +74,7 @@ export default function Register() {
         </div>
         <div>
           <input
+            className="loginField"
             required
             type="password"
             placeholder="Confirm password"
@@ -80,8 +85,7 @@ export default function Register() {
           />
         </div>
 
-        <div>
-          <label>Terms</label>
+        <div className="terms">
           <input
             required
             type="checkbox"
@@ -90,9 +94,10 @@ export default function Register() {
               setUserData({ ...userData, terms: target.checked })
             }
           />
+          <label className="terms-label">Terms</label>
         </div>
 
-        <button>Register</button>
+        <button className="form-btn">Register</button>
       </form>
     </div>
   );

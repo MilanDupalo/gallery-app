@@ -14,15 +14,40 @@ nav {
   height: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   position: relative;
   align-items: center;
-  background-color: rgb(241, 241, 241);
+  justify-content: center;
+  background-color: #232223;
+  color: white;
+}
+
+.nav-link {
+  color: rgb(216, 216, 216);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  transition: 225ms;
+}
+
+.nav-link:hover {
+  text-shadow: 18px -15px 0px white;
+}
+
+.logout-btn {
+  position: absolute;
+  right: 150px;
+  font-size: 1.2rem;
+  color: rgb(99, 99, 99);
+  transition: 225ms;
+}
+
+.logout-btn:hover {
+  color: white;
 }
 
 button {
   padding: 5px 10px;
-  background-color: #151515;
+  background-color: #232223;
   color: white;
   font-weight: 700;
   letter-spacing: 1px;
@@ -32,18 +57,36 @@ button {
   opacity: 0.9;
 }
 
-button:hover {
-  opacity: 1;
-  transform: scale(1.05);
+.form-btn {
+  margin-top: 30px;
+  text-transform: uppercase;
+  border-top: 2px solid #898989;
+  border-bottom: 2px solid #898989;
+  transition: 225ms;
+}
+
+.form-btn:hover {
+  color: white;
+  background-color: #898989;
+  border-radius: 3px;
+}
+
+.terms {
+  color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.terms-label {
+  margin-left: 10px;
+  margin-bottom: 1px;
 }
 
 .active-user {
   position: absolute;
   left: 50px;
-  background-color: rgba(235, 235, 235, 0.1);
-  border-radius: 5px;
-  border: 3px solid #dadada;
-  padding: 5px;
 }
 
 li {
@@ -61,8 +104,7 @@ li {
   height: auto;
   border-radius: 3px;
   background-color: rgb(255, 255, 255);
-  padding: 15px;
-  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
   text-align: center;
   position: relative;
   border-top: 3px solid rgb(155, 44, 44);
@@ -70,9 +112,9 @@ li {
 }
 
 .card-box:hover {
-  border-bottom: 3px solid rgb(155, 44, 44);
   border-top: none;
-  box-shadow: 0 0 7px 3px rgba(66, 48, 48, 0.7);
+  box-shadow: 0 0 2px 1px rgba(58, 42, 42, 0.7);
+  border-top: 3px solid rgb(230, 117, 117);
 }
 
 .card-title {
@@ -129,4 +171,99 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.formRegistarAndLogin {
+  background-color: #232223;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  padding: 30px 0;
+  border-radius: 3px;
+  box-shadow: -4px 4px 14px 0px #000000a6;
+}
+
+.loginField {
+  width: 80%;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-align: center;
+  border-bottom: 1px solid grey;
+}
+
+.loginField:active {
+  border: none;
+  outline: none;
+}
+
+.loginField:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid white;
+  border-radius: 3px;
+}
+
+.MyGalleryContainer {
+  text-align: center;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.dateComments {
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 700px;
+  color: grey;
+}
+
+.commentsContainer {
+  padding: 10px 0;
+  background-color: #232223;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.delete-btn {
+  color: rgb(155, 44, 44);
+  text-transform: uppercase;
+  border: 2px solid rgb(155, 44, 44);
+  transition: 225ms;
+}
+
+.delete-btn:hover {
+  color: white;
+  border: 2px solid white;
+}
+
+.comments-content {
+  background-color: #232223;
+  color: white;
+  width: 400px;
+  height: 100px;
+  padding: 10px;
+}
+
+.form-comments-add {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment-btn-submit {
+  width: 150px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }

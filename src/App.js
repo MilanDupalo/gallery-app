@@ -5,7 +5,9 @@ import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
 import AppGalleries from "./pages/AppGalleries";
 import SingleGallery from "./pages/SingleGallery";
+import Authors from "./pages/Authors";
 import MyGalleries from "./pages/myGalleries";
+import CreateGalleries from "./pages/CreateGalleries";
 import { getActiveUser, selectIsAuthenticated } from "./store/auth";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,12 +35,18 @@ function App() {
           <Route exact path="/galleries/:id">
             <SingleGallery />
           </Route>
+          <Route exact path="/authors/:id">
+            <Authors />
+          </Route>
+          <PrivateRoute exact path="/create-galleries">
+            <CreateGalleries />
+          </PrivateRoute>
           <PrivateRoute exact path="/my-galleries">
             <MyGalleries />
           </PrivateRoute>
-          <Route extact path="/register">
+          <GuestRoute extact path="/register">
             <Register />
-          </Route>
+          </GuestRoute>
           <GuestRoute exact path="/login">
             <Login />
           </GuestRoute>

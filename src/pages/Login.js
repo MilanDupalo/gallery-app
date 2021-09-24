@@ -19,10 +19,11 @@ export default function Login() {
 
   return (
     <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="formRegistarAndLogin" onSubmit={handleSubmit}>
+        <h2 className="formRegistarAndLogin--title">Login</h2>
         <div>
           <input
+            className="loginField"
             required
             type="email"
             placeholder="Email"
@@ -34,6 +35,7 @@ export default function Login() {
         </div>
         <div>
           <input
+            className="loginField"
             required
             type="password"
             placeholder="Password"
@@ -44,7 +46,7 @@ export default function Login() {
           />
         </div>
 
-        <button>Login</button>
+        <button className="form-btn">Login</button>
       </form>
     </div>
   );

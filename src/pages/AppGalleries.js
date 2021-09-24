@@ -59,7 +59,7 @@ function AppGaleries() {
               )}
               <div>
                 <p className="authorName">
-                  <Link to={`/author/${gallery.user.id}`}>
+                  <Link to={`/authors/${gallery.user.id}`}>
                     {gallery.user.firstName} {gallery.user.lastName}
                   </Link>
                 </p>

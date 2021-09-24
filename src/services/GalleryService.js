@@ -11,10 +11,15 @@ class GalleryService extends HttpService {
     return data;
   };
 
-  getGalleries = async (number = 1) => {
-    const { data } = await this.client.get(`/galleries?page=${number}`);
+  getGalleries = async (number = 1, title = "") => {
+    let endpoint = `/galleries/?page=${number}`;
+    if (title) {
+      endpoint += `&title={title}`;
+    }
+    const { data } = await this.client.get(endpoint);
     return data;
   };
+
   getMyGalleries = async (id) => {
     try {
       const { data } = await this.client.get(`/my-galleries/${id}`);
@@ -22,6 +27,19 @@ class GalleryService extends HttpService {
     } catch (error) {
       console.log(error);
     }
+  };
+  addComment = async (comment, galleryId) => {
+    const { data } = await this.client.post(
+      `/galleries/${galleryId}/comments`,
+      comment
+    );
+
+    return data;
+  };
+
+  deleteComment = async (id) => {
+    const { data } = await this.client.delete(`/comments/${id}`);
+    return data;
   };
 }
 

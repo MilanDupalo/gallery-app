@@ -5,6 +5,8 @@ const middlewareActions = {
   login() {},
   logout() {},
   getActiveUser() {},
+  getGallery() {},
+  getGalleries() {},
 };
 
 const authSlice = createSlice({
@@ -29,6 +31,8 @@ export const {
   login,
   logout,
   getActiveUser,
+  getGallery,
+  getGalleries,
   setActiveUser,
   setToken,
 } = authSlice.actions;
