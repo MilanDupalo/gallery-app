@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import GalleryService from "../services/GalleryService";
 import useFormattedDate from "../hooks/useFormattedDate";
 import AddComment from "../components/AddComment";
@@ -11,6 +12,7 @@ import { Carousel } from "react-bootstrap";
 function SingleGallery() {
   const [gallery, setGallery] = useState([]);
   const { id } = useParams();
+  const history = useHistory();
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const activeUser = useSelector(selectActiveUser);
 
@@ -39,6 +41,16 @@ function SingleGallery() {
       ...gallery,
       comments: gallery.comments.filter((comment) => comment.id !== id),
     });
+  };
+
+  const handleDeleteGallery = async (id) => {
+    const response = prompt("Are you sure you want to delete this comment?. ");
+    if (response !== "yes") {
+      return;
+    }
+    history.push("/my-galleries");
+
+    await GalleryService.deleteGallery(id);
   };
 
   return (
@@ -70,6 +82,31 @@ function SingleGallery() {
             ))
           : "This post dosen't have image"}
       </Carousel>
+
+      <div className="deleteAndEditButtons">
+        {activeUser && activeUser.id === gallery.user_id ? (
+          <button
+            className="deleteAndEditButtons-delete deleteAndEditButtons-btn"
+            onClick={() => handleDeleteGallery(gallery.id)}
+          >
+            Delete
+          </button>
+        ) : (
+          ""
+        )}
+
+        {activeUser && activeUser.id === gallery.user_id ? (
+          <button
+            className="deleteAndEditButtons-edit deleteAndEditButtons-btn"
+            onClick={() => history.push(`/edit-galleries/${gallery.id}`)}
+          >
+            Edit
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
+
       <div>
         <p>
           <span className="comments-tittle">Comments: </span>

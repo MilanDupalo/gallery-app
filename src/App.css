@@ -250,13 +250,13 @@ li {
 }
 
 .commentsContainer {
-  padding: 20px;
+  padding: 20px 35px;
   background-color: #232223;
   margin-top: 10px;
   border-radius: 5px;
   color: white;
-  width: 50%;
-  margin-left: 24%;
+  width: 52%;
+  margin-left: 22%;
   transition: 225ms;
 }
 .commentsContainer:hover {
@@ -321,4 +321,74 @@ li {
   background-image: linear-gradient(to right, #151515, #15151557, #151515);
   border-radius: 5px;
   box-shadow: 2px -1px 3px 1px #00000057;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  float: right;
+  margin-top: 5px;
+  margin-right: 15px;
+}
+
+.search-box-input {
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  transition: 225ms;
+  padding-left: 5px;
+}
+
+.search-box-input:focus-visible {
+  border: none !important;
+}
+.search-box-input:active {
+  border-radius: none;
+}
+
+.search-box-btn {
+  margin-right: -10px;
+  border-radius: none;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  transition: 225ms;
+  font-weight: 400;
+}
+
+.search-box-btn:hover {
+  border-radius: none !important;
+}
+
+.deleteAndEditButtons {
+  margin-top: 10px;
+}
+
+.deleteAndEditButtons-btn {
+  background-color: transparent !important;
+  width: 100px;
+  padding: 2px 8px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: 225ms;
+}
+
+.deleteAndEditButtons-delete {
+  border: 2px solid rgb(155, 44, 44);
+  color: rgb(155, 44, 44);
+  margin-right: 10px;
+}
+
+.deleteAndEditButtons-delete:hover {
+  background-color: rgb(155, 44, 44) !important;
+  color: white !important;
+}
+
+.deleteAndEditButtons-edit {
+  border: 2px solid rgb(8, 87, 21);
+  color: rgb(8, 87, 21);
+  text-transform: uppercase;
+}
+
+.deleteAndEditButtons-edit:hover {
+  background-color: rgb(8, 87, 21) !important;
+  color: white !important;
 }

@@ -1,8 +1,13 @@
 import HttpService from "./HttpService";
 
 class GalleryService extends HttpService {
-  getAll = async () => {
-    const { data } = await this.client.get(`/galleries`);
+  getAll = async (number = 1, term = "") => {
+    let endpoint = `/galleries/?page=${number}`;
+
+    if (term) {
+      endpoint += `&term=${term}`;
+    }
+    const { data } = await this.client.get(endpoint);
     return data;
   };
 
@@ -11,12 +16,9 @@ class GalleryService extends HttpService {
     return data;
   };
 
-  getGalleries = async (number = 1, title = "") => {
-    let endpoint = `/galleries/?page=${number}`;
-    if (title) {
-      endpoint += `&title=${title}`;
-    }
-    const { data } = await this.client.get(endpoint);
+  getMyGalleries = async (id) => {
+    const { data } = await this.client.get(`/my-galleries/${id}`);
+
     return data;
   };
 
@@ -44,8 +46,24 @@ class GalleryService extends HttpService {
 
   addGallery = async (newGallery) => {
     const { data } = await this.client.post(`/create-galleries`, newGallery);
-
     return data;
+  };
+
+  deleteGallery = async (gallery) => {
+    try {
+      const { data } = await this.client.delete(`/galleries/${gallery}`);
+      return { data };
+    } catch (error) {}
+  };
+
+  edit = async (id, gallery) => {
+    try {
+      const { data } = await this.client.put(`/edit-galleries/${id}`, gallery);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+    return null;
   };
 }
 

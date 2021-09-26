@@ -10,6 +10,7 @@ function CreateGalleries() {
     description: "",
     imageURL: "",
   });
+
   const activeUser = useSelector(selectActiveUser);
   const { id } = useParams();
   const history = useHistory();
@@ -23,6 +24,7 @@ function CreateGalleries() {
     }
 
     if (id) {
+      console.log(newGallery);
       data = await GalleryService.edit(id, newGallery);
     } else {
       data = await GalleryService.addGallery(newGallery);
@@ -59,7 +61,14 @@ function CreateGalleries() {
         created_at,
         ...data
       } = await GalleryService.getGallery(id);
-      setNewGallery(data);
+      if (!data.images[0]) {
+        setNewGallery({ ...data, imageURL: "" });
+      }
+      if (data.images[0]) {
+        setNewGallery({ ...data, imageURL: data.images[0].imageURL });
+      }
+
+      console.log(data);
     };
 
     if (id) {
@@ -70,6 +79,7 @@ function CreateGalleries() {
   return (
     <div>
       <form className="formRegistarAndLogin" onSubmit={handleSubmit}>
+        <h2 className="formRegistarAndLogin--title">Create Gallery</h2>
         <div className="form-group">
           <input
             type="text"
@@ -90,16 +100,21 @@ function CreateGalleries() {
             onChange={handleDescriptionChange}
           />
         </div>
-        <div className="form-group">
-          <input
-            type="text"
-            className="loginField"
-            id="imageURL"
-            placeholder="Image url"
-            value={newGallery.imageURL}
-            onChange={handleImageURLChange}
-          />
-        </div>
+        {!id ? (
+          <div className="form-group">
+            <input
+              type="text"
+              className="loginField"
+              id="imageURL"
+              placeholder="Image url"
+              value={newGallery.imageURL}
+              onChange={handleImageURLChange}
+            />
+          </div>
+        ) : (
+          ""
+        )}
+
         <button className="form-btn">{id ? "Edit" : "Create"}</button>
       </form>
     </div>

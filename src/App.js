@@ -1,12 +1,17 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
 import AppGalleries from "./pages/AppGalleries";
 import SingleGallery from "./pages/SingleGallery";
 import Authors from "./pages/Authors";
-import MyGalleries from "./pages/myGalleries";
+import MyGalleries from "./pages/MyGalleries";
 import CreateGalleries from "./pages/CreateGalleries";
 import { getActiveUser, selectIsAuthenticated } from "./store/auth";
 import { useEffect } from "react";
@@ -29,7 +34,7 @@ function App() {
       <Router>
         <NavBar />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/galleries">
             <AppGalleries />
           </Route>
           <Route exact path="/galleries/:id">
@@ -41,6 +46,9 @@ function App() {
           <PrivateRoute exact path="/create-galleries">
             <CreateGalleries />
           </PrivateRoute>
+          <PrivateRoute exact path="/edit-galleries/:id">
+            <CreateGalleries />
+          </PrivateRoute>
           <PrivateRoute exact path="/my-galleries">
             <MyGalleries />
           </PrivateRoute>
@@ -50,6 +58,9 @@ function App() {
           <GuestRoute exact path="/login">
             <Login />
           </GuestRoute>
+          <Route exact path="/">
+            <Redirect to="/galleries" />
+          </Route>
         </Switch>
       </Router>
     </div>

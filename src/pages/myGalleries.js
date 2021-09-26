@@ -2,6 +2,7 @@ import { selectActiveUser, selectIsAuthenticated } from "../store/auth";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import GalleryService from "../services/GalleryService";
+import { Link } from "react-router-dom";
 
 function MyGalleries() {
   const [galleries, setGalleries] = useState([]);
@@ -13,7 +14,6 @@ function MyGalleries() {
       if (!activeUser) {
         return;
       }
-      console.log(activeUser);
       const data = await GalleryService.getMyGalleries(activeUser.id);
 
       setGalleries(data);
@@ -28,7 +28,9 @@ function MyGalleries() {
       {galleries.map((gallery) => (
         <div key={gallery.id}>
           <div>
-            <h2>{gallery.title}</h2>
+            <Link className="card-title" to={`/galleries/${gallery.id}`}>
+              <h2>{gallery.title}</h2>
+            </Link>
             <h3>Description</h3>
             <p> {gallery.description}</p>
             {gallery.images.length ? (
